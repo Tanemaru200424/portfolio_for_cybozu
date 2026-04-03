@@ -1,0 +1,260 @@
+/* =========================================
+   基本設定
+   ========================================= */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* 共通コンテナ：画面中央にコンテンツを収める */
+.container {
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+/* 共通見出し：セクションごとのタイトル */
+.heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.heading h2 {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #223134;
+  border-bottom: 3px solid #239b76; /* Unityをイメージしたアクセントカラー */
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* =========================================
+   ヘッダー
+   ========================================= */
+header {
+  height: 65px;
+  background-color: #223134;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+}
+
+.logo-text {
+  color: white;
+  line-height: 65px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.header-left {
+  float: left;
+}
+
+.header-right {
+  float: right;
+}
+
+.header-right a {
+  color: white;
+  line-height: 65px;
+  padding: 0 15px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.header-right a:hover {
+  background-color: rgba(255,255,255,0.2);
+}
+
+/* =========================================
+   メインビジュアル
+   ========================================= */
+.top-wrapper {
+  padding: 180px 0 100px; /* ヘッダー固定分を考慮して上の余白を多めに */
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(top-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+}
+
+.top-wrapper h1 {
+  font-size: 50px;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.btn {
+  padding: 12px 30px;
+  color: white;
+  border-radius: 4px;
+  display: inline-block;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.github {
+  background-color: #333;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* =========================================
+   自己紹介エリア (About)
+   ========================================= */
+.about-wrapper {
+  padding: 100px 0;
+  background-color: #fff; /* 作品紹介との対比で白に */
+}
+
+.about-content {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+.about-text h3 {
+  font-size: 24px;
+  color: #223134;
+  margin-bottom: 25px;
+  padding-left: 15px;
+  border-left: 5px solid #239b76;
+}
+
+.about-text p {
+  font-size: 16px;
+  line-height: 2.0;
+  margin-bottom: 25px;
+  color: #444;
+  text-align: justify;
+}
+
+.about-text strong {
+  color: #239b76;
+  font-weight: bold;
+}
+
+/* =========================================
+   作品紹介エリア (Works)
+   ========================================= */
+.lesson-wrapper {
+  padding: 100px 0;
+  background-color: #f7f7f7; /* 薄いグレーで背景を分ける */
+  text-align: center;
+}
+
+.work-content {
+  margin-bottom: 80px; /* 次の作品との間隔 */
+  text-align: center;  /* 題名やボタンを中央寄せにする */
+}
+
+.video-container {
+  margin-bottom: 30px;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9のアスペクト比 */
+  height: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+}
+
+.work-description {
+  text-align: left;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.work-description h3 {
+  margin-top: 0;
+  color: #223134;
+}
+
+.work-description ul {
+  padding-left: 20px;
+  line-height: 1.8;
+}
+
+/* ボタンエリアの全体調整 */
+.work-link {
+  margin-top: 40px;
+  text-align: center;
+}
+
+/* 共通のボタン設定（.btnを拡張） */
+.work-link .btn {
+  margin: 10px; /* ボタン同士がくっつかないように余白を作る */
+  min-width: 250px; /* ボタンの長さを揃えて見栄えを良くする */
+  font-weight: bold;
+}
+
+/* 試遊ボタン（緑） */
+.play-btn {
+  background-color: #239b76;
+  border-bottom: 5px solid #1a7458;
+}
+
+/* GitHubボタン（黒） */
+.github-btn {
+  background-color: #333;
+  border-bottom: 5px solid #000;
+}
+
+/* ホバー時の挙動（少し沈む演出） */
+.play-btn:hover, .github-btn:hover {
+  transform: translateY(2px);
+  border-bottom-width: 3px;
+  opacity: 1;
+}
+
+/* 注意書きのスタイル */
+.play-notes {
+  font-size: 12px;
+  color: #888;
+  margin-top: 15px;
+}
+
+/* =========================================
+   フッター
+   ========================================= */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  background-color: #223134;
+  color: #b3aeb5;
+}
+
+.copyright {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.last-updated {
+  font-size: 12px;
+  opacity: 0.7;
+}

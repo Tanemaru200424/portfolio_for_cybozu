@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ゲームプログラマーを目指す大学生のポートフォリオ</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="header-left">
+        <div class="logo-text">内容</div>
+      </div>
+      <div class="header-right">
+        <a href="#about">自己紹介</a>
+        <a href="#works">代表作一覧</a>
+        <a href="#teamworks">協力作品一覧</a>
+        <a href="#nowmakings">制作中作品一覧</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="top-wrapper">
+    <div class="container">
+      <h1>ゲームプログラマーを目指す大学生の<br>ポートフォリオ</h1>
+      <p>主なスキル : Unityゲーム開発経験</p>
+      <div class="btn-wrapper">
+        <a href="https://github.com/Tanemaru200424" class="btn github" target="_blank" rel="noopener noreferrer">
+          <span class="fa fa-github"></span> GitHubを見る
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="about-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2>自己紹介</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Tanemaru200424</h3>
+          <p>
+            ゲームプログラマー志望の28卒大学生です。これまでUnityを用いたチーム制作および個人制作で、計4本の2Dゲーム開発に携わってきました。一部のプロジェクトではリーダーも務め、実装から進捗管理まで幅広く経験しています。
+          </p>
+          <p>
+            私のモットーは「自身の成長を他者への貢献につなげること」です。単に仕様を実装するだけでなく、常にユーザー目線を持ち、遊び心地や楽しさに繋がる最適な技術選択ができるプログラマーを目指しています。
+          </p>
+          <p>
+            入社後は、基礎から最先端技術までを貪欲に吸収し、「このゲームを買ってよかった。次も楽しみだ」と世界中のプレイヤーに思っていただけるような作品づくりに貢献したいと考えています。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="works" class="lesson-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2>代表作一覧</h2>
+      </div>
+      
+      <div class="work-content">
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/l8T7DOIsIKE" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="work-description">
+          <h3>作品名：2Dシューティングゲーム「カースィ」</h3>
+          <p class="text-contents">
+            初めて作成した2Dシューティングゲームです。
+            <br>【工夫した点】
+            <ul>
+              <li>長押し時間を管理することによる自動連射システムを実装しました。<br>
+                  弾発射ボタンを押した瞬間に長押し時間をリセットし、UpdateでTime.deltaTimeに依存した数値を加算、一定値を越えたら弾を発射し再びリセットするというサイクルです。</li>
+              <li>獲得スコアに応じて分岐をする敵生成アルゴリズムを実装しました。<br>
+                  敵のGameObjectとint型の生成優先度（高いほど優先される）を持つ構造体GameInfoを定義し、これのリストを2つ作成しました。1つは通常敵、もう1つは強化敵を登録したものです。<br>
+                  生成関数も通常敵用と強化敵用の2つあり、それぞれのリストを参照します。各敵はリスト内の優先度の合計に対する自身の優先度の割合を確率として抽選、生成されます。</li>
+              <li>被撃墜時に一定時間無敵になるようにしました。無敵中は自機が半透明になります。<br>
+                  無敵中、プレイヤーの物理レイヤーが敵と接触しないものに切り替えられ、SpriteRendererのcolorが変更されます。無敵時間はコルーチンのWaitForSecondsによって計算されます。<br>
+                  半透明は点滅よりも処理が重いと考えましたが、ゲーム自体が軽いので問題ないと判断し半透明を選択しました。</li>
+            </ul>
+          </p>
+          <div class="work-link">
+            <a href="https://unityroom.com/games/suika_2dshooting" class="btn play-btn" target="_blank" rel="noopener noreferrer">
+              UnityRoomで試遊する
+            </a>
+
+            <a href="https://github.com/Tanemaru200424/Suika_2DShooting" class="btn github-btn" target="_blank" rel="noopener noreferrer">
+              GitHubでコードを見る
+            </a>
+  
+            <p class="play-notes">※PCブラウザでのプレイを推奨します</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-content">
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/7-V0nSivLUA" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="work-description">
+          <h3>作品名：2Dベルトアクション「勇者の卵」</h3>
+          <p class="text-contents">
+            先輩の作品に影響を受け、それを超えるゲームを目標に作成しました。
+            <br>【工夫した点】
+            <ul>
+              <li>敵の攻撃範囲予測と攻撃範囲を表示するようにしました。<br>
+                  敵オブジェクトに予測範囲、攻撃オブジェクトに攻撃範囲を持たせました。<br>
+                  敵のアニメーションで攻撃予備動作の信号を送った時に予測範囲を表示します。また、攻撃発生の信号を送った時に予測範囲を非表示して攻撃オブジェクトを発生させます。</li>
+              <li>タイトルのUIからSEとBGMのボリュームを変更できるようにしました。<br>
+                  GameManagerの子にSE用とBGM用の2つのAudioSourceを持たせ、UIのボタンにそれぞれのボリュームを操作する機能を与えることで実装しました。<br>
+                  GameManagerはシーンをまたいで破棄されないシングルトンであるため変更したボリュームが全てのシーンで適用されます。</li>
+              <li>一時停止を実装しました。TimeScaleを0にするだけの簡単なものです。アニメーションと物理挙動が止まるためポーズ中に攻撃を受けるといった理不尽は発生しません。<br>
+                  また、一時停止からタイトルに戻ったり、リスタートしたりする時、ゲームオーバーが重なって起きないようにイベント中にフラグを立てるようにしています。</li>
+            </ul>
+          </p>
+          <div class="work-link">
+            <a href="https://unityroom.com/games/the_egg_of_hero" class="btn play-btn" target="_blank" rel="noopener noreferrer">
+              UnityRoomで試遊する
+            </a>
+
+            <a href="https://github.com/Tanemaru200424/The_Egg_of_Hero" class="btn github-btn" target="_blank" rel="noopener noreferrer">
+              GitHubでコードを見る
+            </a>
+  
+            <p class="play-notes">※PCブラウザでのプレイを推奨します</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-content">
+        <div class="video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Gfg1b7rOMWE" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="work-description">
+          <h3>作品名：2DシューティングRPG「Explore First Dungeon」</h3>
+          <p class="text-contents">
+            元々チーム制作でしたが期日に間に合わなかったため引き継いで個人制作したものです。
+            <br>【工夫した点】
+            <ul>
+              <li>攻撃範囲等様々な範囲描画を実装しました。勇者の卵では四角の絵を貼り付けているだけでしが、本作品ではLineRendererをスクリプトで操作して実装しています。より範囲であることを強調するために枠線描画に挑戦しました。<br>
+                  親オブジェクトのScaleやInspectorで指定された値を基にグラデーションを利かせた枠線を描きます。円と長方形の2種類があります。</li>
+              <li>敵、自キャラクターともにレベルで攻撃方法が変化するようにしました。単純なIF分岐で実装しています。<br>
+                  キャラクターに各レベルごとの攻撃オブジェクトを登録し、攻撃時にレベルを参照することで攻撃を切り替えます。<br>
+                  これにより少ない実装で実質多くの異なるキャラクターを作成できます。</li>
+              <li>一時停止を実装しました。勇者の卵とは異なり、TimeScaleを操作するのではなく、イベントを起こすことで実装しました。<br>
+                  TimeScaleで止める場合、止まるべきもの、そうでないものの管理のために何がTimeScaleの影響が受けるのか把握する必要があります。例えばAnimation等のオプションやdeltaTimeとunscaledTimeの使い分け等を覚える必要があります。<br>
+                  イベントで起こす関数に一時停止の影響を受けてほしい部分をまとめることで一時停止で何をしているのか明らかにしました。</li>
+            </ul>
+          </p>
+          <div class="work-link">
+            <a href="https://unityroom.com/games/explore_first_dungeon" class="btn play-btn" target="_blank" rel="noopener noreferrer">
+              UnityRoomで試遊する
+            </a>
+
+            <a href="https://github.com/Tanemaru200424/X68Survivor" class="btn github-btn" target="_blank" rel="noopener noreferrer">
+              GitHubでコードを見る
+            </a>
+  
+            <p class="play-notes">※PCブラウザでのプレイを推奨します</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div id="teamworks" class="lesson-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2>協力作品一覧</h2>
+      </div>
+      
+      <div class="work-content">
+        <div class="work-description">
+          <h3>作品名：2Dボスバトルアクション「Black Sword」</h3>
+          <p class="text-contents">
+            ボスバトルをメインとした2Dアクションです。ダッシュ、スーパーダッシュという敵の攻撃をすり抜ける固有システムを活かしてボスの行動に対応することを特徴としています。<br>
+            全4体のボスのうち「ジャイアントスパイダー」、「シールドナイト」、「リザードウォーリア」の3体の企画、開発を行いました。GitHubで閲覧できるブランチのうち名前に「Tanemaru」と含まれている部分が担当箇所です。
+            <br>【工夫した点】
+            <ul>
+              <li>Animatorの現在再生中のステート名を参照して挙動を変化するようにしました。<br>
+                  高難易度を想定しており、多くの行動パターンを実装する必要がありました。そのため、実装、保守しやすいようにAnimatorを軸にキャラクターを制御するようにしました。</li>
+              <li>ジャイアントスパイダーは最初のボスとして単純な行動パターンにしました。ジャンプ3回→突進→360度ビームまたは斬撃のサイクルを繰り返します。<br>
+                  360度ビームは発射位置と着弾位置を参照して絵と当たり判定の長さを動的に変更することで実装しました。ステージの地形を変えても自然な演出になります。</li>
+              <li>シールドナイトはダッシュ、スーパーダッシュに新たな価値を付与するために制作しました。一定の条件を満たすとバリアを張り、放置すると回避困難な突進、攻撃するとカウンターを繰り出します。<br>
+                  バリアにダッシュを当てると怯ませることができます。ダッシュが当たった時呼び出されるインターフェースにこの機能を与えることで実装しました。<br>
+                  仮にガードブレイクが理解できなくても、ゲージを消費して遠距離から攻撃すれば安全地帯からカウンターを誘発させるという攻略法もあります。</li>
+              <li>リザードウォーリアは最高難易度ボスとして設計しました。遠、中、近距離に応じた行動パターンをそれぞれ3つ持っています。これらの技から3つを連続で行うことと短い待機を繰り返します。<br>
+                  長さ3の行動パターンの番号配列に0から2の整数をランダムな順で入れます。現在の連続行動数番目にある行動パターン番号とプレイヤーとの距離からどの技を行うか決定するという仕組みです。</li>
+            </ul>
+          </p>
+          <div class="work-link">
+            <a href="https://unityroom.com/games/black_sword" class="btn play-btn" target="_blank" rel="noopener noreferrer">
+              UnityRoomで試遊する
+            </a>
+
+            <a href="https://github.com/Shun-Miyamoto/Black2DAction/tree/main" class="btn github-btn" target="_blank" rel="noopener noreferrer">
+              GitHubでコードを見る
+            </a>
+  
+            <p class="play-notes">※PCブラウザでのプレイを推奨します</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div id="nowmakings" class="lesson-wrapper">
+    <div class="container">
+      <div class="heading">
+        <h2>制作中作品一覧</h2>
+      </div>
+      
+      <div class="work-content">
+        <div class="work-description">
+          <h3>作品名：2Dジャンプアクション「けーびろぼ！」</h3>
+          <p class="text-contents">
+            シンプルな2Dジャンプアクションに吹き飛ばし攻撃を加えた作品にする予定です。サークルで制作志望者が多い2Dジャンプアクションの作例として制作しています。現在はチュートリアルの仮完成まで進んでいます。
+            <br>【工夫した点】
+            <ul>
+              <li>アクションに関わるゲームオブジェクトを1つのオブジェクトコンテナに登録し、管理しやすくしました。<br>
+                  オブジェクト生成者がコンテナを観測し、生成物を登録します。登録解除は生成物が無効化された時に呼び出されます。一時停止等多くのオブジェクトを対象にする処理を実装しやすくするためです。</li>
+              <li>制御が複雑なオブジェクトには状態管理用のスクリプトを実装しました。<br>
+                  Enum型で状態名を付け制御します。外部から状態変更をする際は直接状態を操作するのではなく関数を呼び出すことで変更するようにしました。</li>
+              <li>SubStateMachineを使用することで、Animatorのステート名を取得せずともアニメーションの変化を追跡できるようにしました。<br>
+                  常にステート名を観測するのは重い処理であると聞いたため、SubStateMachineによる関数呼び出しにしました。</li>
+            </ul>
+          </p>
+          <div class="work-link">
+            <a href="https://unityroom.com/games/ke-bi_robo_trial" class="btn play-btn" target="_blank" rel="noopener noreferrer">
+              UnityRoomで試遊する
+            </a>
+
+            <a href="https://github.com/Tanemaru200424/Beginner2DAction" class="btn github-btn" target="_blank" rel="noopener noreferrer">
+              GitHubでコードを見る
+            </a>
+  
+            <p class="play-notes">※PCブラウザでのプレイを推奨します</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  <footer>
+    <div class="container">
+      <p class="copyright">© 2026 kaito</p>
+      <p class="last-updated">Last Updated: 2026.03.30</p>
+    </div>
+  </footer>
+</body>
+</html>
